@@ -4,3 +4,4 @@ flask_marshmallow==0.12.0
 PyMySQL==0.9.3
 flask_mongoalchemy==0.7.2
 flask_restful==0.3.8
+marshmallow-sqlalchemy==0.23.0

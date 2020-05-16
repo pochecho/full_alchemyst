@@ -10,6 +10,8 @@ from flask_restful import abort
 from flask_restful import Api
 from flask_restful import reqparse
 from flask_restful import Resource
+from flask_marshmallow import Marshmallow
+
 #Se importa MongoAlchemy
 #Se importa dumps
 #rom flask_restful import Resource, Api#Se instancia la clase de Flask, se configura el acceso
@@ -19,6 +21,13 @@ app.config['MONGOALCHEMY_DATABASE'] = 'empleados'
 app.config['MONGOALCHEMY_CONNECTION_STRING'] = 'mongodb://localhost:27017/empleados'
 #Se instancia mongoalchemy pasando la app.
 db = MongoAlchemy(app)#Se asocia el API a la aplicacion
+ma = Marshmallow(app)
+
+class TaskSchema(ma.Schema):
+    class Meta:
+        fields = ('nombre', 'sexo', 'edad',"dni")
+task_schema = TaskSchema()
+tasks_schema = TaskSchema(many=True)
 api = Api(app)
 #Se crea la clase empleados la cual manejara los documentos.
 class empleados(db.Document):
@@ -41,16 +50,10 @@ class EmpleadosList(Resource):
     def get(self):
         #Se realiza la busqueda y se devuelve el resultado, si existe un error de atributo (que el empleado no existe)
         #Se devuelve empleado no encontrado.
-        try:
-            consulta = empleados.query.all()
-            resultado = []
-            for i in consulta:
-                resultado.append(i.wrap())
-            resp =  Response(dumps(resultado),status=200,mimetype='application/json')
-            resp.headers['Link'] = 'http://blog.crespo.org.ve'
-            return resp
-        except (AttributeError):
-            return not_found    #Se define el metodo post para agregar un empleado por medio de un json a la
+        consulta = empleados.query.all()
+        resp =  tasks_schema.dump(consulta)
+        return jsonify(resp)
+
     #base de datos mongoDB.
     def post(self):
         #args = parser.parse_args()

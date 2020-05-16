@@ -4,7 +4,7 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
-    name = 'full_alchemyst-pochecho',
+    name = 'full_alchemyst',
     version = '0.0.1',
     description = "Les's to use a unique ORM to manage the persistence in one project. ",
     long_description = long_description,

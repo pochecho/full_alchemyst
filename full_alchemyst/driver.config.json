@@ -1,0 +1,21 @@
+{
+    "mongo":{
+        "module":"flask_mongoalchemy",
+        "path":"MONGOALCHEMY_CONNECTION_STRING",
+        "driver":"",
+        "type":"mongodb",
+        "attributes":{
+            "MONGOALCHEMY_DATABASE":"<<database>>"
+        }
+    },
+    "mysql": {
+        "module":"flask_sqlalchemy",
+        "path":"SQLALCHEMY_DATABASE_URI",
+        "driver":"pymysql",
+        "type":"mysql",
+        "SQLALCHEMY_TRACK_MODIFICATIONS": "<<SQLALCHEMY_TRACK_MODIFICATIONS>>",
+        "attributes":{
+            "MONGOALCHEMY_DATABASE":false
+        }
+    }
+}
