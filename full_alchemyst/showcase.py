@@ -1,4 +1,4 @@
-from lib import define, FullAlchemyst
+from full_alchemyst import define, FullAlchemyst
 from flask import Flask
 db_config = {
     "type":"mysql",

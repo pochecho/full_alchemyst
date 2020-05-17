@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
     name = 'full_alchemyst',
-    version = '0.0.1',
+    version = '1.0.1',
     description = "Les's to use a unique ORM to manage the persistence in one project. ",
     long_description = long_description,
     long_description_content_type = "text/markdown",
@@ -20,5 +20,9 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent"
         ],
-    python_requires = ">=3.6"
+    python_requires = ">=3.6",
+    install_requires=[
+        "flask_sqlalchemy>=2.4.1",
+        "flask_mongoalchemy>=0.7.2"
+    ]
 )
