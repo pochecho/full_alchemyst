@@ -1,9 +1,0 @@
-{
-    "type":"mongo",
-    "host": "localhost",
-    "port":27017,
-    "user":"",
-    "database":"google",
-    "password":"",
-    "SQLALCHEMY_TRACK_MODIFICATIONS":true
-}

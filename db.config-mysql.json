@@ -1,9 +1,0 @@
-{
-    "type":"mysql",
-    "driver": "pymysql",
-    "host": "localhost",
-    "port":27017,
-    "user":"root",
-    "database":"google",
-    "password":"Sifamek!666"
-}
